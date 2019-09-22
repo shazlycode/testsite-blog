@@ -1,4 +1,28 @@
 html, body{
     direction: rtl;
-    text-align: right
+    text-align: right;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.card.m-2.p-2{
+    background-color: rgb(238, 226, 171);
+}
+
+
+
+.navbar.navbar-expand-lg{
+    background-color: rgb(49, 108, 163);
+    color: rgb(238, 158, 175);
+}
+
+.card-title{
+    background-color: chartreuse;
+}
+
+.card-body{
+    background-color: rgb(238, 226, 171);
+}
+
+.card-body.text-center{
+    font-size: 30px;
 }
