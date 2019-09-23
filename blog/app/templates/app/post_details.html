@@ -1,0 +1,61 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+
+
+
+{% block content %}
+
+
+<div class="card mt-3 p-2 ">
+    <h3 class="">{{post.post_name}}</h3>
+    <span class="border-bottom">بواسطة {{post.auther}} في {{post.post_date}}</span>
+    <div class="">{{post.post_body}}</div>
+
+</div>
+<div class="mt-4">
+    <h2 class="card-title text-center">التعليقات ({{comments.count}})</h3>
+
+</div>
+
+
+{% for comment in comments %}
+<div class="card mt-3 p-2 ">
+
+    <span>بواسطة {{comment.name}} في {{comment.comment_date|date:'d-m-Y'}}</span>
+    <small class="border-bottom"><a href="mailto://{{comment.email}}">{{comment.email}}</a></small>
+    <div class="">{{comment.comment_body}}</div>
+
+</div>
+
+{% endfor %}
+
+<div class="mt-4">
+        <h2 class="card-title text-center">اضافة تعليق </h3>
+    
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{comment_form|crispy}}
+        <input type="submit" value="اضافة تعليق">
+
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+</html>
