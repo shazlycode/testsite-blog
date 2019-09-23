@@ -20,4 +20,8 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('post_details/<int:post_id>/', views.post_details, name='post_details'),
+    path('register', views.register, name='register'),
+    
+    
 ]
