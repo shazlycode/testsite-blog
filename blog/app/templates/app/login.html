@@ -1,0 +1,46 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">{{message}}</div>
+
+{% endfor %}
+{%  endif %}
+
+<div class="mt-4">
+        <h2 class="card-title text-center">تسجيل الدخول</h3>
+    
+    </div>
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{login_form|crispy}}
+        <input type="submit" value="دخول">
+    
+    
+    
+    </form>
+    
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+</html>

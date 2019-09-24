@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">{{message}}</div>
+
+{% endfor %}
+{%  endif %}
+
+<div class="mt-4">
+        <h2 class="card-title text-center">تم تسجيل الخروج</h3>
+    
+    </div>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+</html>

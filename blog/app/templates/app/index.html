@@ -6,6 +6,13 @@
 
 {% block content %}
 
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">{{message}}</div>
+
+{% endfor %}
+{%  endif %}
+
 {% for post in posts %}
 <div class="card mt-3 p-2 ">
     <a href="{% url 'post_details' post.pk %}"><h3 class="">{{post.post_name}}</h3></a>
