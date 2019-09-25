@@ -1,0 +1,9 @@
+{% for comment in comments %}
+<ul>
+    <li><a href="{% url 'post_details' post.pk %}">{{comment.comment_body}}</a></li>
+</ul>
+
+{% empty %}
+
+
+{% endfor %}

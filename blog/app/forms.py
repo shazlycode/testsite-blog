@@ -32,7 +32,7 @@ class RegisterForm(forms.ModelForm):
         return cd['username']
     
     
-    def clean_password(self):
+    def clean_password2(self):
         cd = self.cleaned_data
         if cd['password1'] != cd['password2']:
             raise forms.ValidationError('كلمة المرور غير متطابقة')
