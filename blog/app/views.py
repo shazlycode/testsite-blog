@@ -107,3 +107,16 @@ def logout_user(request):
         'title':'تسجيل الخروج'
     }
     return render(request, 'app/logout.html', context)
+
+
+def profile(request):
+    posts= Post.objects.filter(auther=request.user)
+    
+    
+    
+    
+    context = {
+        'title': 'الملف الشخصي',
+        'posts': posts,
+    }
+    return render(request, 'app/profile.html', context)
