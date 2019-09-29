@@ -3,6 +3,9 @@ from app .models import Post
 from app .forms import CommentForm, RegisterForm, LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth. decorators import login_required
+
+
 # Create your views here.
 def index(request):
     posts= Post.objects.all()
@@ -57,7 +60,7 @@ def register(request):
             new_user.set_password(password)
             new_user.save()
             messages.success(request,'تهانينا {} لقد تم تسجيلك بنجاح'.format(username))
-            return redirect('index')
+            return redirect('login')
       
     else:
         register_form= RegisterForm()
@@ -79,7 +82,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'مرحبا {} لقد تم تسجيل الدخول بنجاح'.format(username))
-            return redirect('index')
+            return redirect('profile')
         else:
             messages.warning(request, 'هناك خطا في اسم المستخدم او كلمة المرور')
             
@@ -108,7 +111,7 @@ def logout_user(request):
     }
     return render(request, 'app/logout.html', context)
 
-
+@login_required(login_url='login')
 def profile(request):
     posts= Post.objects.filter(auther=request.user)
     
