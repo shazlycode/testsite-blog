@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">{{message}}</div>
+
+{% endfor %}
+{%  endif %}
+
+<form action="" method="POST">
+    {% csrf_token  %}
+    {{newpost|crispy}}
+    <input type="submit" value="نشر">
+</form>
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+</html>

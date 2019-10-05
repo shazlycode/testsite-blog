@@ -8,12 +8,12 @@ from PIL import Image
 
 class Post(models.Model):
     post_name = models.CharField(max_length=100)
-    post_body = models.TextField(default="")
+    post_body = models.TextField(default="",verbose_name='نص التدوينة')
     email = models.EmailField()
     post_date = models.DateTimeField(default=timezone.now)
     post_update = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=False)
-    auther = models.ForeignKey(User, on_delete=models.CASCADE)
+    auther = models.ForeignKey(User, on_delete=models.CASCADE, related_name='me')
     
     def __str__(self):
         return self.post_name
@@ -61,3 +61,4 @@ def create_profile(sender, **Kwarg):
         Profile.objects.create(user=Kwarg['instance'])
         
 post_save.connect(create_profile, sender=User)
+

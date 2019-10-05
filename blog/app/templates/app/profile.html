@@ -17,7 +17,7 @@
     <div class="col-md-3 text-center">
         <img class="img-fluid rounded-circle mb-2 mt-3" width="120px" src="{{user.profile.image.url}}"
             alt="صورة الناشر">
-        <a class="btn btn-primary bg-secondary mt-3" href="#">تحرير <i class="fas fa-pen fa-xs "></i></a>
+        <a class="btn btn-primary bg-secondary mt-3" href="{% url 'profile_update' %}">تحرير <i class="fas fa-pen fa-xs "></i></a>
     </div>
     <div class="col-md-9 border">
         <h3 class="font-weight-bold pt-3 mb-4">{{user.username}} </h3>

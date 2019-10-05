@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+
+
+
+{% block content %}
+
+<div class="mt-4">
+    <h2 class="card-title text-center">تعديل الملف الشخصي</h3>
+
+</div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{user_form|crispy}}
+    {{profile_form|crispy}}
+    <input type="submit" value="تعديل">
+
+
+
+</form>
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+</html>

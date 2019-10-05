@@ -26,3 +26,8 @@ html, body{
 .card-body.text-center{
     font-size: 30px;
 }
+
+
+ul{
+    list-style-type:none;
+}
