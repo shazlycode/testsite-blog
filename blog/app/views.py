@@ -216,7 +216,7 @@ def update_post(request, post_id):
     note= get_object_or_404(Post, pk=post_id)
     
     if request.method == 'POST':
-        newpost=NewPost(request.POST, instance= note)
+        newpost=NewPost(request.POST, instance=note)
         if newpost.is_valid():
             new= newpost.save(commit=False)
             new.auther= request.user
