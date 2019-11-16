@@ -238,3 +238,4 @@ def delete_post(request,post_id):
     
     return redirect('/')
     
+    
